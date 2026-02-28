@@ -1,10 +1,9 @@
    <navbar>
 
         <ul>
-            <li><a href="">Beranda</a></li>
-            <li><a href="">Produk</a></li>
-            <li><a href="">Tantang Kami</a></li>
-            <li><a href="">Kontak</a></li>
+            <li><a href="/aji_langit_farm/index.php">Beranda</a></li>
+            <li><a href="/aji_langit_farm/page/produk">Produk</a></li>
+            <li><a href="/aji_langit_farm/page/keranjang">keranjang</a></li>
         </ul>
         
     </navbar>

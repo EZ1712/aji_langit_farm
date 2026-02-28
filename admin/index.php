@@ -11,13 +11,13 @@
 </head>
 <body>
     
-    <?php include "layout/header.php" ?>
+    <?php include __DIR__ . "/../layout/header.php" ?>
 
-     <content>
-        <h1>Home</h1>
-    </content>
+    
+    <h1>login</h1>
+    
 
-    <?php include "layout/footer.php" ?>
+    <?php include __DIR__ . "/../layout/footer.php" ?>
 
 </body>
 </html>
