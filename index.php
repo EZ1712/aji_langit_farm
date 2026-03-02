@@ -1,5 +1,6 @@
 <?php 
 // require __DIR__ . 'connection.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -11,13 +12,21 @@
 </head>
 <body>
     
-    <?php include "layout/header.php" ?>
+    <?php include dirname(__DIR__) . "/aji_langit_farm/layout/header.php" ?>
 
      <content>
-        <h1>Home</h1>
+        <div>
+            <h1>Aji Langit Farm</h1>
+        </div>
+        <div>
+            <h2>itik lokal</h2>
+        </div>
+        <div>
+            <h2>tentang kami</h2>
+        </div>
     </content>
 
-    <?php include "layout/footer.php" ?>
+    <?php include dirname(__DIR__) . "/aji_langit_farm/layout/footer.php" ?>
 
 </body>
 </html>
