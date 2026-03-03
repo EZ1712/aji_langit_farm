@@ -29,8 +29,12 @@ if ( isset($_POST["keranjang"])) {
 <body>
 
     <?php include dirname(__DIR__) . "/../layout/header.php" ?>
-    <p>Keranjang</p>
     <content>
+
+        <h1>Identitas</h1>
+
+
+        <h1>Keranjang</h1>
         <form action="" method="post">
 
         <ul>

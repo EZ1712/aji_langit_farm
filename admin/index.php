@@ -14,7 +14,12 @@ require dirname(__DIR__) . '/function/produk.php';
     
     <?php include dirname(__DIR__) . "/layout/header.php" ?>
 
-    <h1>login</h1>
+    <ul>
+        <li><a href="/aji_langit_farm/page/pemasukan">catatan pemasukan</a></li>
+        <li><a href="/aji_langit_farm/page/produksi">catatan produksi</a></li>
+    </ul>
+
+    <h1>Dashboard</h1>
      <content>
         <?php
         $produks = produk("SELECT * FROM produk");
@@ -27,6 +32,9 @@ require dirname(__DIR__) . '/function/produk.php';
 
         </div>
         <?php endforeach; ?>
+        <div>
+            <h2></h2>
+        </div>
     </content>
     
 

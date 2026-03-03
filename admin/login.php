@@ -1,6 +1,8 @@
 <?php
-
 $directory = dirname(__DIR__) . "/layout/header.php";
+
+
+
 ?>
 
 <!DOCTYPE html>
