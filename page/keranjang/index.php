@@ -25,6 +25,7 @@ if ( isset($_POST["keranjang"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 
@@ -40,7 +41,7 @@ if ( isset($_POST["keranjang"])) {
         <ul>
             <li>
                 <label for="no_telephone">No Telephone</label>
-                <input type="text" name="no_telephone" id="no_telephone"/>
+                <input type="number" name="no_telephone" id="no_telephone"/>
             </li>
             <li>
                 <label for="paket">Paket</label>

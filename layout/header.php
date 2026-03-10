@@ -2,6 +2,7 @@
 // $directory = dirname(__DIR__) . "/page/produk";
 // echo($directory)
 ?>
+    
 <navbar>
     <ul>
         <li><a href="/aji_langit_farm/">Beranda</a></li>

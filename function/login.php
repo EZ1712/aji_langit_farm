@@ -1,12 +1,12 @@
 <?php
 require dirname(__DIR__) . "/connection.php";
 
-function produksi($query) {
+function login($query) {
     global $connection;
     $result = mysqli_query($connection, $query);
 
     $datas = [];
-    while ($data = mysqli_fetch_assoc($result)) {
+    while ( $data = mysqli_fetch_assoc($result)) {
         $datas[] = $data;
     }
     return $datas;
