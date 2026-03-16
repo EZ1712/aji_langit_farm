@@ -1,22 +1,29 @@
 <?php
-$directory = dirname(__DIR__) . "/layout/header.php";
-require dirname(__DIR__) . '/function/login.php';
+session_start();
+$directory = "../layout/header.php";
+require '../function/login.php';
+require '../connection.php';
+
+if (isset($_SESSION["admin"])) {
+    header("Location: index.php");
+    exit;
+}
 
 if (isset($_POST["login"])) {
 
     $no_telephone = $_POST["no_telephone"];
     $password = $_POST["password"];
 
-    $logins = login("SELECT * FROM admin");
-    
-    
-    foreach ($logins as $login)
-        // var_dump($login);
-        // echo($login["no_telephone"]);
-
-        if ($no_telephone == $login["no_telephone"] && $password == $login["password"]) {
-            echo("<script>alert('Login berhasil')</script>");
-        }    
+    $no_telephone_verification =  mysqli_query($connection, "SELECT * FROM admin WHERE no_telephone = '$no_telephone'");
+    if ( mysqli_num_rows($no_telephone_verification) === 1 ) {
+        $data = mysqli_fetch_assoc($no_telephone_verification);
+        if ( password_verify($password, $data["password"]) ) {
+            $_SESSION["admin"] = true;
+            header("Location: index.php");
+            exit;
+        }
+    }
+    $error = true;
 }
 
 ?>
@@ -31,10 +38,15 @@ if (isset($_POST["login"])) {
 </head>
 <body>
     
-    <?php include dirname(__DIR__) . "/layout/header.php" ?>
+    <?php include "../layout/header.php" ?>
 
     <content>
     <h1>Login</h1>
+
+    <?php if( isset($error)) : ?>
+        <p>no telephone / password salah</p>
+    <?php endif; ?>
+
     <form action="" method="post">
         <label for="no_telephone">No Telepon</label>
         <input type="number" name="no_telephone" id="no_telephone">
@@ -47,7 +59,7 @@ if (isset($_POST["login"])) {
 
     </content>
 
-    <?php include dirname(__DIR__) . "/layout/footer.php" ?>
+    <?php include "../layout/footer.php" ?>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php 
-// require __DIR__ . '/../../connection.php';
-require dirname(__DIR__) . '/../function/produk.php'
+session_start();
+require '../../function/produk.php'
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require dirname(__DIR__) . '/../function/produk.php'
 </head>
 <body>
     
-    <?php include dirname(__DIR__) . "/../layout/header.php" ?>
+    <?php include "../../layout/header.php" ?>
 
     <p>Produk</p>
      <content>
@@ -30,7 +30,7 @@ require dirname(__DIR__) . '/../function/produk.php'
         <?php endforeach; ?>
     </content>
 
-    <?php include dirname(__DIR__) . "/../layout/footer.php" ?>
+    <?php include "../../layout/footer.php" ?>
 
 </body>
 </html>

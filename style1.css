@@ -1,0 +1,9 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav {
+    background-color: #355E13;
+    padding: 10px;
+}

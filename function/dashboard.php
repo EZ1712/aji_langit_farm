@@ -1,14 +1,16 @@
 <?php
-require "../../connection.php";
+require "../connection.php";
 
-function pemasukan($query) {
+function produk($query) {
     global $connection;
     $result = mysqli_query($connection, $query);
 
     $datas = [];
-    while ($data = mysqli_fetch_assoc($result)) {
+    while ( $data = mysqli_fetch_assoc($result) ) {
         $datas[] = $data;
     }
     return $datas;
 }
+
+
 ?>

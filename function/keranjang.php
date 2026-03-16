@@ -1,6 +1,6 @@
 <?php 
 
-require dirname(__DIR__) . "/connection.php";
+require "../../connection.php";
 
 function keranjang($query) {
     global $connection;

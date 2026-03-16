@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . "/connection.php";
+require "../connection.php";
 
 function login($query) {
     global $connection;

@@ -1,6 +1,12 @@
-<?php 
-require __DIR__ . '/../connection.php';
-require dirname(__DIR__) . '/function/produk.php';
+<?php
+session_start();
+
+if ( !isset($_SESSION["admin"])) {
+    header("Location: login.php");
+    exit;
+}
+
+require '../function/dashboard.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +19,7 @@ require dirname(__DIR__) . '/function/produk.php';
 </head>
 <body>
     
-    <?php include dirname(__DIR__) . "/layout/header.php" ?>
+    <?php include "../layout/header.php" ?>
 
     <ul>
         <li><a href="/aji_langit_farm/page/pemasukan">catatan pemasukan</a></li>
@@ -21,6 +27,7 @@ require dirname(__DIR__) . '/function/produk.php';
     </ul>
 
     <h1>Dashboard</h1>
+    <a href="logout.php">Logout</a>
      <content>
         <?php
         $produks = produk("SELECT * FROM produk");
@@ -39,7 +46,7 @@ require dirname(__DIR__) . '/function/produk.php';
     </content>
     
 
-    <?php include dirname(__DIR__) . "/layout/footer.php" ?>
+    <?php include "../layout/footer.php" ?>
 
 </body>
 </html>

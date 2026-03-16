@@ -1,7 +1,12 @@
 <?php
-require dirname(__DIR__) . "/../function/keranjang.php";
-require dirname(__DIR__) . "/../connection.php";
-require dirname(__DIR__) . '/../function/produk.php';
+session_start();
+require "../../function/keranjang.php";
+require "../../connection.php";
+require '../../function/produk.php';
+
+// require dirname(__DIR__) . "../../function/keranjang.php";
+// require dirname(__DIR__) . "../../connection.php";
+// require dirname(__DIR__) . '../../function/produk.php';
 
 if ( isset($_POST["keranjang"])) {
 
@@ -29,7 +34,8 @@ if ( isset($_POST["keranjang"])) {
 </head>
 <body>
 
-    <?php include dirname(__DIR__) . "/../layout/header.php" ?>
+    <?php include "../../layout/header.php" ?>
+
     <content>
 
         <h1>Identitas</h1>
@@ -70,7 +76,7 @@ if ( isset($_POST["keranjang"])) {
         </form>
     </content>
 
-    <?php include dirname(__DIR__) . "/../layout/footer.php" ?>
+    <?php include "../../layout/footer.php" ?>
 
 </body>
 </html>

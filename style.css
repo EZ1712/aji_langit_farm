@@ -1,3 +1,208 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    color: black;
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF9F0;
+    color: #355E13;
+}
+
+/* Navigasi */
+nav {
+    background-color: #355E13;
+    padding: 10px 5%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Ukuran logo kecil sesuai referensi */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.cart-icon {
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('background-bebek.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-text h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Konten Utama */
+.content {
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.main-prod-img {
+    width: 250px;
+    border: 4px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tagline {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #355E13;
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 5px 15px;
+    background: white;
+    border-radius: 5px;
+}
+
+/* Grid Icon */
+.icons-grid {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.icon-item img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.icon-item p {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Tentang Kami */
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: #355E13;
+    color: white;
+    padding-top: 30px;
+    margin-top: 50px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    margin-bottom: 30px;
+}
+
+.orange-text {
+    color: #FFA500;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.footer-info p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    background-color: #26430D;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    border-top: 1px solid #4A7A1C;
+}
+
+.hero {
+    /* Bagian paling penting: Gambar Latar Belakang */
+    background-image: url('1.png');
+    /* Ganti dengan nama file gambar latar belakang kamu */
+
+    background-size: cover;
+    /* Gambar akan menutupi seluruh area */
+    background-position: center;
+    /* Gambar akan berada di tengah */
+
+    /* Mengatur tinggi area header agar teks bisa berada di atas gambar */
+    height: 400px;
+    /* Atur tinggi sesuai keinginan, misalnya 400px */
+
+    /* Mengatur teks agar berada di tengah area header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-text h1 {
+    /* Mengubah warna teks menjadi putih */
+    color: white;
+    /* Ganti dengan warna yang kamu inginkan */
+    font-size: 2.5rem;
+    /* Mengatur ukuran teks agar lebih besar */
+}
+
+.product-feature {
+    display: flex;
+    flex-direction: column;
+    /* Ini yang membuat elemen turun ke bawah */
+    align-items: center;
+    /* Agar gambar dan teks tetap di tengah */
+    text-align: center;
+    margin-top: 30px;
+}
+
+.main-prod-img {
+    width: 250px;
+    /* Ukuran sesuai referensi */
+    height: auto;
+    border: 5px solid white;
+    /* Frame putih seperti di foto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    /* Jarak antara gambar dan teks */
+}
+
+.tagline {
+    background-color: white;
+    color: #436d14;
+    /* Warna hijau teks */
+    font-weight: bold;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Membuat sudut kotak agak melengkung */
+    display: inline-block;
+    /* Agar kotak putih hanya mengikuti lebar teks */
 }

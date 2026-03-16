@@ -1,5 +1,12 @@
 <?php
-require dirname(__DIR__) . '/../function/produksi.php';
+session_start();
+
+if ( !isset($_SESSION["admin"])) {
+    header("Location: ../../index.php");
+    exit;
+}
+
+require '../../function/produksi.php';
 
 
 ?>
@@ -20,7 +27,7 @@ table, th, td {
 <body>
     
 
-    <?php include dirname(__DIR__) . "/../layout/header.php" ?>
+    <?php include "../../layout/header.php" ?>
 
     <h1>Produksi</h1>
     <content>
@@ -51,7 +58,7 @@ table, th, td {
 
     </content>
 
-    <?php include dirname(__DIR__) . "/../layout/footer.php" ?>
+    <?php include "../../layout/footer.php" ?>
 
 </body>
 </html>
