@@ -11,4 +11,9 @@ function pemasukan($query) {
     }
     return $datas;
 }
+
+function catat_pemasukan($query) {
+    global $connection;
+    $result = mysqli_query($connection, $query);
+}
 ?>

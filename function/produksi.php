@@ -12,4 +12,9 @@ function produksi($query) {
     return $datas;
 }
 
+function catat_produksi($query) {
+    global $connection;
+    $result = mysqli_query($connection, $query);
+}
+
 ?>

@@ -9,6 +9,21 @@ if ( !isset($_SESSION["admin"])) {
 require '../../function/produksi.php';
 
 
+if (isset($_POST["catat_produksi"])) {
+
+    $tanggal = $_POST["tanggal"];
+    $jumlah_menetas = $_POST["menetas"];
+    $jumlah_mati = $_POST["mati"];
+    
+    $query = "INSERT INTO produksi VALUES ('', '$tanggal', '$jumlah_menetas', '$jumlah_mati')";
+    catat_produksi($query);
+
+    echo("
+    <script>alert('berhasil mencatat produksi')</script>
+    ");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +44,23 @@ table, th, td {
 
     <?php include "../../layout/header.php" ?>
 
-    <h1>Produksi</h1>
+    
     <content>
+    <h1>Catat Produksi</h1>
+    <form action="" method="post">
+        <label for="tanggal">Tanggal</label>
+        <input type="datetime-local" name="tanggal" id="tanggal">
 
+        <label for="menetas">Jumlah Menetas</label>
+        <input type="number" name="menetas" id="menetas">
+
+        <label for="mati">Jumlah Mati</label>
+        <input type="number" name="mati" id="mati">
+
+        <button type="submit" name="catat_produksi">Catat Produksi</button>
+    </form>
+
+    <h1>Produksi</h1>
     <table style="width: 100%">
         <tr>
             <th>No</th>

@@ -1,12 +1,18 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["admin"])) {
+    header("Location: ../index.php");
+    exit;
+}
+
 require '../function/register.php';
 
 if ( isset($_POST["register"])) {
-    var_dump($_POST);
+
     if( register($_POST) > 0) {
         echo "<script> alert('register succes') </script>";
     } else {
-        // echo "<script> alert('register failed') </script>";
         echo mysqli_error($connection);
     }
 }
