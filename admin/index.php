@@ -9,8 +9,10 @@ if ( !isset($_SESSION["admin"])) {
 require '../function/dashboard.php';
 
 if (isset($_POST["delete"])) {
-    $no_telephone = $_POST["no_telephone"];
-    delete("DELETE FROM keranjang WHERE no_telephone='$no_telephone'");
+    $id = $_POST["id"];
+    $status = (int)$_POST["status"];
+    $status += 1;
+    update_status("UPDATE keranjang SET status=$status WHERE id='$id'");
     
 }
 
@@ -29,7 +31,7 @@ if (isset($_POST["delete"])) {
         }
 
         table {
-            width: 50%;
+            width: 100%;
         }
     </style>
 </head>
@@ -51,16 +53,18 @@ if (isset($_POST["delete"])) {
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Tanggal</th>
                 <th>Alamat</th>
                 <th>No Telephone</th>
                 <th>Paket</th>
                 <th>Kuantitas</th>
                 <th>Total</th>
+                <th>Status</th>
                 <th>Aksi</th>
             </tr>
             <?php
             $produks = produk("SELECT paket,harga FROM produk");
-            $keranjangs = keranjang("SELECT * FROM keranjang");
+            $keranjangs = keranjang("SELECT * FROM keranjang WHERE status <= 1 ORDER BY tanggal ASC");
             $no = 1;
             foreach ($keranjangs as $keranjang):
                 $paket = $keranjang["paket"];
@@ -69,6 +73,7 @@ if (isset($_POST["delete"])) {
             <tr>
                 <td><?=$no ?></td>
                 <td><?=$keranjang["nama"] ?></td>
+                <td><?=$keranjang["tanggal"] ?></td>
                 <td><?=$keranjang["alamat"] ?></td>
                 <td><?=$keranjang["no_telephone"] ?></td>
                 <td><?=$paket ?></td>
@@ -81,10 +86,12 @@ if (isset($_POST["delete"])) {
                     }
                 endforeach;
                 ?>
+                <td><p><?= status($keranjang["status"]) ?></p></td>
                 <td>
                     <form action="" method="post">
-                        <input type="hidden" name="no_telephone" value="<?=$keranjang['no_telephone'] ?>">
-                        <input type="submit" name="delete" value="Hapus" onclick="return confirm('Apakah ingin dihapus')">
+                        <input type="hidden" name="id" value="<?=$keranjang["id"] ?>">
+                        <input type="hidden" name="status" value="<?=$keranjang["status"] ?>">
+                        <input type="submit" name="delete" value="Update Status" onclick="return confirm('Apakah anda ingin mengubah statusnya menjadi [<?= status_update($keranjang["status"]) ?>]')">
                     </form>
                 </td>
             </tr>

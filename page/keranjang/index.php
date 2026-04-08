@@ -12,11 +12,11 @@ if ( isset($_POST["keranjang"])) {
     $paket = $_POST["paket"];
     $kuantitas = $_POST["kuantitas"];
 
-    $query_keranjang = "INSERT INTO keranjang VALUES ('$no_telephone', '$nama', '$alamat', '$paket', '$kuantitas')";
+    $query_keranjang = "INSERT INTO keranjang VALUES ('','$no_telephone', '$nama', NOW(), '$alamat', '$paket', '$kuantitas', 0)";
     keranjang($query_keranjang);
 
     echo("
-    <script>alert('berhasil memasukan keranjang')</script>
+    <script>alert('berhasil membeli, menunggu konfirmasi')</script>
     ");
 }
 
@@ -39,17 +39,18 @@ if ( isset($_POST["keranjang"])) {
         <h1>Identitas</h1>
 
         <label for="nama">Nama</label>
-        <input type="text" name="nama" id="nama">
+        <input type="text" name="nama" id="nama" pattern="[A-Za-z]+[A-Za-z\s]*" required />
 
         <label for="no_telephone">No Telephone</label>
-        <input type="number" name="no_telephone" id="no_telephone"/>
+        <input type="tel" name="no_telephone" id="no_telephone" placeholder="081234567890" required pattern="[0-9]{11,}" onkeydown="return event.keyCode !== 69" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
 
         <label for="alamat">Alamat</label>
-        <input type="text" name="alamat" id="alamat">
+        <input type="text" name="alamat" id="alamat" required>
 
         <h1>Keranjang</h1>
         <label for="paket">Paket</label>
-        <select name="paket" id="paket">
+        <select name="paket" id="paket" required>
+            <option value="" disabled selected>Pilih Produk</option>
             <?php
             $produks = produk("SELECT * FROM produk");
             foreach ($produks as $produk):
@@ -59,7 +60,7 @@ if ( isset($_POST["keranjang"])) {
         </select>    
                     
         <label for="kuantitas">Kuantitas</label>
-        <input type="number" name="kuantitas" id="kuantitas"/>
+        <input type="number" name="kuantitas" id="kuantitas" min="1" required onkeydown="return event.keyCode !== 69"/>
             
         <button type="submit" name="keranjang">Beli</button>
 

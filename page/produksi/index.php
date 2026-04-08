@@ -49,13 +49,13 @@ table, th, td {
     <h1>Catat Produksi</h1>
     <form action="" method="post">
         <label for="tanggal">Tanggal</label>
-        <input type="datetime-local" name="tanggal" id="tanggal">
+        <input type="datetime-local" name="tanggal" id="tanggal" required>
 
         <label for="menetas">Jumlah Menetas</label>
-        <input type="number" name="menetas" id="menetas">
+        <input type="number" name="menetas" id="menetas" min="1" required onkeydown="return event.keyCode !== 69" required>
 
         <label for="mati">Jumlah Mati</label>
-        <input type="number" name="mati" id="mati">
+        <input type="number" name="mati" id="mati" min="1" required onkeydown="return event.keyCode !== 69" required>
 
         <button type="submit" name="catat_produksi">Catat Produksi</button>
     </form>

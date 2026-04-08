@@ -71,10 +71,11 @@ table, th, td {
     <h1>Catat Pemasukan</h1>
     <form action="" method="post">
         <label for="tanggal">Tanggal</label>
-        <input type="datetime-local" name="tanggal" id="tanggal">
+        <input type="datetime-local" name="tanggal" id="tanggal" required>
 
         <label for="produk">Produk</label>
-        <select name="produk" id="produk">
+        <select name="produk" id="produk" required>
+            <option value="" disabled selected>Pilih Produk</option>
             <?php
             $produks = produk("SELECT * FROM produk");
             foreach ($produks as $produk):
@@ -85,12 +86,12 @@ table, th, td {
         </select>
 
         <label for="kuantitas">Kuantitas</label>
-        <input type="number" name="kuantitas" id="kuantitas">
+        <input type="number" name="kuantitas" id="kuantitas" min="1" onkeydown="return event.keyCode !== 69" required>
 
         
 
         <label for="pemasukan">Pemasukan</label>
-        <input type="number" name="pemasukan" id="pemasukan">
+        <input type="number" name="pemasukan" id="pemasukan" placeholder="kosongkan untuk hitung otomatis">
 
         <button type="submit" name="catat_pemasukan">Catat Pemasukan</button>
     </form>

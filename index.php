@@ -23,7 +23,7 @@ session_start();
 
     <main class="content">
         <section class="product-feature">
-            <img src="itik.png" alt="Itik DOD" class="main-prod-img">
+            <img src="1.png" alt="Itik DOD" class="main-prod-img">
             <p class="tagline">Itik (DOD) Lokal Indramayu</p>
         </section>
 
