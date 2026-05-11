@@ -1,0 +1,187 @@
+
+
+<!-- 
+    <section class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Menetas</th>
+                    <th>Mati</th>
+                    <th>DOD siap Jual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $produksis = produksi("SELECT * FROM produksi");
+                foreach ($produksis as $produksi ) :
+                    // Logika sederhana untuk siap jual: menetas - mati
+                    $siap_jual = $produksi["jumlah_menetas"] - $produksi["jumlah_mati"];
+                ?>
+                <tr>
+                    <td><?=$produksi["tanggal"] ?></td>
+                    <td><?=$produksi["jumlah_menetas"] ?></td>
+                    <td><?=$produksi["jumlah_mati"] ?></td>
+                    <td><?=$siap_jual ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</content>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    <h1>Produksi</h1>
+    <table style="width: 100%">
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>jumlah menetas</th>
+            <th>jumlah mati</th>
+        </tr>
+        <?php
+        $count = 1;
+        $produksis = produksi("SELECT * FROM produksi ORDER BY tanggal DESC LIMIT $limit OFFSET $offset ");
+        foreach ($produksis as $produksi ) :
+        ?>
+        <tr>
+            <td><?=$count ?></td>
+            <td><?=$produksi["tanggal"] ?></td>
+            <td><?=$produksi["jumlah_menetas"] ?></td>
+            <td><?=$produksi["jumlah_mati"] ?></td>
+        </tr>
+        <?php $count += 1; endforeach;
+        
+        ?>
+    </table>
+    <!-- <button >PREVIOUS</button>
+    <button>NEXT</button> -->
+    <div style="margin-top: 20px;">
+    <?php if ($page > 1) : ?>
+        <a href="?page=<?= $page - 1 ?>"><button>PREVIOUS</button></a>
+    <?php endif; ?>
+
+    <span> Halaman <?= $page ?> </span>
+
+    <?php if ($page < $total_halaman) : ?>
+        <a href="?page=<?= $page + 1 ?>"><button>NEXT</button></a>
+    <?php else : ?>
+        <!-- <button disabled>NEXT</button>  -->
+        <?php endif; ?>
+    </div>
+    
+
+    </content>
+
+
+
+
+
+
+
+
+
+
+
+    backup
+
+    // $query_total = "SELECT COUNT(*) AS total FROM produksi";
+// $total = total_data($query_total);
+// $total_data = $total[0]['total'];
+// $total_data = 0;
+// $query_total_page = "SELECT id_produksi FROM produksi ";
+// $total_pages = total_data("SELECT id_produksi FROM produksi");
+//     foreach ($total_pages as $pages ) :
+//         $total_data += 1; endforeach;
+// $total_pages = ceil($total_data / $limit);
+
+
+
+
+
+
+  <!-- <content>
+    <h1>Catat Produksi</h1>
+    <form action="" method="post">
+        <label for="tanggal">Tanggal</label>
+        <input type="datetime-local" name="tanggal" id="tanggal" required>
+
+        <label for="menetas">Jumlah Menetas</label>
+        <input type="number" name="menetas" id="menetas" min="1" required onkeydown="return event.keyCode !== 69" required>
+
+        <label for="mati">Jumlah Mati</label>
+        <input type="number" name="mati" id="mati" min="1" required onkeydown="return event.keyCode !== 69" required>
+
+        <button type="submit" name="catat_produksi">Catat Produksi</button>
+    </form> -->
+
+    .btn-pagination {
+    background-color: #386611;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 100px;
+    display: inline-block;
+}
+
+    <?php for($i = 1; $i <= $total_halaman; $i++): ?>
+        <?php if($i == $page): ?>
+            <a href="?halaman=<?= $i; ?>" class="active"><?= $i; ?></a>
+        <?php elseif($i == 1 || $i == $total_halaman || ($i >= $page - 1 && $i <= $page + 1)): ?>
+            <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php elseif($i == $page - 2 || $i == $page + 2): ?>
+            <span class="dots">...</span>
+        <?php endif; ?>
+    <?php endfor; ?>
+
+    backup
+        <div class="pagination-wrapper">
+        <?php if ($page > 1) : ?>
+            <a href="?page=<?= $page - 1 ?>" class="btn-pagination"><</a>
+        <?php else:?>
+            <a href="?page=<?=$page?>" class="btn-pagination-disable"><</a>
+        <?php endif; ?>
+
+        <span class="page-info"><?= $page ?></span>
+
+        <?php if ($page < $total_halaman) : ?>
+            <a href="?page=<?= $page + 1 ?>" class="btn-pagination">></a>
+        <?php endif; ?>
+    </div>
+</div>

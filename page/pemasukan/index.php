@@ -13,6 +13,19 @@ function auto_hitung($harga ,$kuantitas) {
     return $harga * $kuantitas;
 }
 
+function pagination($offset, $page) {
+    return ($page - 1) * $offset;
+}
+
+$result = total_data("SELECT COUNT(*) AS total FROM pemasukan");
+$total_data = $result[0]['total'];
+
+$limit = 10; 
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = pagination($limit, $page);
+
+$total_halaman = ceil($total_data / $limit);
+
 // $hargas = produk("SELECT paket, harga FROM produk");
 // $harga = [];
 
@@ -55,6 +68,7 @@ if (isset($_POST["catat_pemasukan"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aji Langit Farm</title>
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style_backup.css">
 </head>
 <style>
 table, th, td {
@@ -67,63 +81,106 @@ table, th, td {
     <?php include "../../layout/header.php" ?>
 
     
-    <content>
-    <h1>Catat Pemasukan</h1>
-    <form action="" method="post">
-        <label for="tanggal">Tanggal</label>
-        <input type="datetime-local" name="tanggal" id="tanggal" required>
+    <section class="form-card">
+        <h1 class="title-green">Catatan pemasukan</h1>
+        <form action="" method="post" class="input-form">
+            <input type="datetime-local" name="tanggal" id="tanggal" required placeholder="Tanggal">
+            
+            <select name="produk" id="produk" required>
+                <option value="" disabled selected>Produk</option>
+                <?php
+                $produks = produk("SELECT * FROM produk");
+                foreach ($produks as $produk):
+                ?>
+                <option value="<?=$produk["paket"] ?>"><?=$produk["paket"]?></option>
+                <?php endforeach;?>
+            </select>
 
-        <label for="produk">Produk</label>
-        <select name="produk" id="produk" required>
-            <option value="" disabled selected>Pilih Produk</option>
-            <?php
-            $produks = produk("SELECT * FROM produk");
-            foreach ($produks as $produk):
-            ?>
-            <option value="<?=$produk["paket"] ?>"><?=$produk["paket"]?></option>
-            <?php 
-            endforeach;?>
-        </select>
+            <input type="number" name="kuantitas" id="kuantitas" placeholder="Jumlah DOD" min="1" onkeydown="return event.keyCode !== 69" required>
 
-        <label for="kuantitas">Kuantitas</label>
-        <input type="number" name="kuantitas" id="kuantitas" min="1" onkeydown="return event.keyCode !== 69" required>
+            <input type="number" name="pemasukan" id="pemasukan" onkeydown="return event.keyCode !== 69" min="1" placeholder="Nominal (Kosongkan untuk otomatis isi)">
 
-        
+            <button type="submit" name="catat_pemasukan" class="btn-submit">Catat pemasukan</button>
+        </form>
+    </section>
 
-        <label for="pemasukan">Pemasukan</label>
-        <input type="number" name="pemasukan" id="pemasukan" placeholder="kosongkan untuk hitung otomatis">
-
-        <button type="submit" name="catat_pemasukan">Catat Pemasukan</button>
-    </form>
-
+    <div class="container-pemasukan">
     <h1>Pemasukan</h1>
-    <table style="width: 100%">
-        <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Produk</th>
-            <th>Kuantitas</th>
-            <th>Pemasukan</th>
-        </tr>
-        <?php
-        $count = 1;
-        $pemasukans = pemasukan("SELECT * FROM pemasukan");
-        foreach ($pemasukans as $pemasukan ) :
-        ?>
-        <tr>
-            <td><?=$count ?></td>
-            <td><?=$pemasukan["tanggal"] ?></td>
-            <td><?=$pemasukan["produk"] ?></td>
-            <td><?=$pemasukan["kuantitas"] ?></td>
-            <td><?=$pemasukan["pemasukan"] ?></td>
-        </tr>
-        <?php $count += 1; endforeach;
+    
+    <div class="table-section">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Produk</th>
+                    <th>Kuantitas</th>
+                    <th>Pemasukan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $count = 1;
+                $pemasukans = pemasukan("SELECT * FROM pemasukan ORDER BY tanggal DESC LIMIT $limit OFFSET $offset");
+                foreach ($pemasukans as $pemasukan ) :
+                ?>
+                <tr>
+                    <td><?=$count ?></td>
+                    <td><?=$pemasukan["tanggal"] ?></td>
+                    <td><?=$pemasukan["produk"] ?></td>
+                    <td><?=$pemasukan["kuantitas"] ?></td>
+                    <td>Rp <?= number_format($pemasukan["pemasukan"], 0, ',', '.') ?></td>
+                </tr>
+                <?php $count += 1; endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination-wrapper">
         
-        ?>
-    </table>
+
+        
 
 
-    </content>
+
+
+
+
+
+
+
+
+         <?php if ($page > 1) : ?>
+            <a href="?page=<?= $page - 1 ?>" class="btn-pagination"><</a>
+        <?php else:?>
+            <span class="btn-pagination-disable"><</span>
+    <?php endif; ?>
+
+
+    <!-- bagian page nya -->
+    <?php for($i = 1; $i <= $total_halaman; $i++): ?>
+        <?php if($i == $page): ?>
+            <a href="?page=<?= $i; ?>" class="page-info-active"><?= $i; ?></a>
+        <?php elseif($i == 1 || $i == $total_halaman || ($i >= $page - 1 && $i <= $page + 1)): ?>
+            <a href="?page=<?= $i; ?>" class="page-info"><?= $i; ?></a>
+        <?php elseif($i == $page - 2 || $i == $page + 2): ?>
+            <span class="page-info">...</span>
+        <?php endif; ?>
+    <?php endfor; ?>
+
+    <?php if ($page < $total_halaman) : ?>
+            <a href="?page=<?= $page + 1 ?>" class="btn-pagination">></a>
+        <?php else:?>
+            <span class="btn-pagination-disable">></span>
+    <?php endif; ?>
+
+
+
+
+    </div> 
+</div>
+
+
 
     <?php include "../../layout/footer.php" ?>
 

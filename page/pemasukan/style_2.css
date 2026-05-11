@@ -1,0 +1,99 @@
+/* Container Utama */
+.container-pemasukan {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #fdf5e6; /* Krem sesuai gambar sebelumnya */
+}
+
+h1 {
+    color: #2d4405;
+    margin-bottom: 20px;
+}
+
+/* Base Table Style */
+.table-pemasukan {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Header Tabel - Hijau Gelap */
+.table-pemasukan th {
+    background-color: #3e5c07;
+    color: #ffffff;
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #2d4405;
+    text-transform: capitalize;
+}
+
+/* Body Tabel */
+.table-pemasukan td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Baris Selang-seling (Zebra) */
+.table-pemasukan tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover Effect */
+.table-pemasukan tr:hover {
+    background-color: #e9f0d8;
+}
+
+/* --- Pagination Style --- */
+.pagination-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Posisi di tengah */
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-pagination {
+    background-color: #3e5c07;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-pagination:hover {
+    background-color: #2d4405;
+}
+
+.page-info {
+    font-weight: bold;
+    color: #3e5c07;
+    font-size: 15px;
+}
+
+/* --- Responsive (Mobile) --- */
+@media screen and (max-width: 600px) {
+    .table-pemasukan {
+        display: block;
+        overflow-x: auto; /* Scroll horizontal jika tabel terlalu lebar */
+        white-space: nowrap;
+    }
+    
+    .pagination-wrapper {
+        flex-direction: row; /* Tetap sejajar */
+        gap: 10px;
+    }
+    
+    .btn-pagination {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}

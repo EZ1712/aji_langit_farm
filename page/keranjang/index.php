@@ -29,6 +29,7 @@ if ( isset($_POST["keranjang"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -39,15 +40,21 @@ if ( isset($_POST["keranjang"])) {
         <h1>Identitas</h1>
 
         <label for="nama">Nama</label>
-        <input type="text" name="nama" id="nama" pattern="[A-Za-z]+[A-Za-z\s]*" required />
+
+        <!-- Validasi setelah submit -->
+        <!-- <input type="text" name="nama" id="nama" pattern="[A-Za-z]+[A-Za-z\s]*" required placeholder="Nama" /> -->
+        
+        <!-- Validasi ketika diketik -->
+        <input type="text" name="nama" id="nama" pattern="^[a-zA-Z\s]+$" title="Masukan Huruf" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" required placeholder="Nama" 
+/>
 
         <label for="no_telephone">No Telephone</label>
-        <input type="tel" name="no_telephone" id="no_telephone" placeholder="081234567890" required pattern="[0-9]{11,}" onkeydown="return event.keyCode !== 69" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+        <input type="tel" name="no_telephone" id="no_telephone" placeholder="081234567890" required pattern="08[0-9]{9,}" onkeydown="return event.keyCode !== 69" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
 
         <label for="alamat">Alamat</label>
-        <input type="text" name="alamat" id="alamat" required>
+        <input type="text" name="alamat" id="alamat" required placeholder="Alamat">
 
-        <h1>Keranjang</h1>
+        <h1>Paket</h1>
         <label for="paket">Paket</label>
         <select name="paket" id="paket" required>
             <option value="" disabled selected>Pilih Produk</option>
@@ -60,7 +67,7 @@ if ( isset($_POST["keranjang"])) {
         </select>    
                     
         <label for="kuantitas">Kuantitas</label>
-        <input type="number" name="kuantitas" id="kuantitas" min="1" required onkeydown="return event.keyCode !== 69"/>
+        <input type="number" name="kuantitas" id="kuantitas" min="1" required onkeydown="return event.keyCode !== 69" placeholder="Kuantitas"/>
             
         <button type="submit" name="keranjang">Beli</button>
 

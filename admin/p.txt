@@ -1,0 +1,301 @@
+
+
+
+    <content>
+        <table class="data-table">
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>Alamat</th>
+                <th>No Telephone</th>
+                <th>Paket</th>
+                <th>Kuantitas</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+            <?php
+            $produks = produk("SELECT paket,harga FROM produk");
+            $keranjangs = keranjang("SELECT * FROM keranjang WHERE status <= 1 ORDER BY tanggal ASC");
+            $no = 1;
+            foreach ($keranjangs as $keranjang):
+                $paket = $keranjang["paket"];
+                $kuantitas = (int)$keranjang["kuantitas"];
+            ?>
+            <tr>
+                <td><?=$no ?></td>
+                <td><?=$keranjang["nama"] ?></td>
+                <td><?=$keranjang["tanggal"] ?></td>
+                <td><?=$keranjang["alamat"] ?></td>
+                <td><?=$keranjang["no_telephone"] ?></td>
+                <td><?=$paket ?></td>
+                <td><?=$kuantitas ?></td>
+                <?php
+                foreach ( $produks as $produk) : 
+                    if ($paket == $produk["paket"]) {
+                        $total = (int)$produk["harga"] * $kuantitas;
+                        echo("<td>$total</td>");
+                    }
+                endforeach;
+                ?>
+                <td><p><?= status($keranjang["status"]) ?></p></td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?=$keranjang["id"] ?>">
+                        <input type="hidden" name="status" value="<?=$keranjang["status"] ?>">
+                        <input type="submit" name="delete" value="Update Status" onclick="return confirm('Apakah anda ingin mengubah statusnya menjadi [<?= status_update($keranjang["status"]) ?>]')">
+                    </form>
+                </td>
+            </tr>
+            <?php
+            $no += 1;
+            endforeach;
+            ?>
+        </table>
+
+        <div class="product-container">
+            <?php
+            $produks = produk("SELECT * FROM produk");
+            foreach ( $produks as $produk) : 
+            ?>
+            <div class="product-card">
+                <p><?= $produk["paket"] ?></p>
+                <p>Harga: <?= $produk["harga"] ?></p>
+                <p>Kuantitas: <?= $produk["kuantitas"] ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </content>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Hubungi Kami</h3>
+            <p>WhatsApp: +62 821-2109-8985</p>
+            <p>Facebook: Aji Langit Farm</p>
+        </div>
+        <div class="footer-section">
+            <h3>Alamat</h3>
+            <p>Ds Langut Blok Karanganyar, RT19/RW 04,</p>
+            <p>Kac Lohbener, Kab. Indramayu</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Aji Langit Farm. Seluruh hak cipta dilindungi</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <main class="dashboard-container">
+        <nav class="admin-nav">
+            <a href="logout.php" class="btn-nav logout">Logout</a>
+            <a href="register.php" class="btn-nav">Tambah akun</a>
+            <div class="records-link">
+                <a href="/aji_langit_farm/page/pemasukan">catatan pemasukan</a>
+                <a href="/aji_langit_farm/page/produksi">catatan produksi</a>
+            </div>
+        </nav>
+
+        <h1 class="page-title">Dashboard</h1>
+        
+        <content>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Alamat</th>
+                            <th>No Telephone</th>
+                            <th>Paket</th>
+                            <th>Kuantitas</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // ... baris foreach PHP kamu tetap sama ...
+                        ?>
+                        <tr>
+                            <td><?=$no ?></td>
+                            <td><?=$keranjang["nama"] ?></td>
+                            <td><?=$keranjang["tanggal"] ?></td>
+                            <td><?=$keranjang["alamat"] ?></td>
+                            <td><?=$keranjang["no_telephone"] ?></td>
+                            <td><?=$paket ?></td>
+                            <td><?=$kuantitas ?></td>
+                            <?php
+                            foreach ( $produks as $produk) : 
+                                if ($paket == $produk["paket"]) {
+                                    $total = (int)$produk["harga"] * $kuantitas;
+                                    echo("<td>Rp ".number_format($total, 0, ',', '.')."</td>");
+                                }
+                            endforeach;
+                            ?>
+                            <td><span class="status-label"><?= status($keranjang["status"]) ?></span></td>
+                            <td>
+                                <form action="" method="post">
+                                    <input type="hidden" name="id" value="<?=$keranjang["id"] ?>">
+                                    <input type="hidden" name="status" value="<?=$keranjang["status"] ?>">
+                                    <input type="submit" name="delete" value="Update status" class="btn-update" onclick="return confirm('Apakah anda ingin mengubah statusnya?')">
+                                </form>
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="product-summary">
+                <?php
+                $produks = produk("SELECT * FROM produk");
+                foreach ( $produks as $produk) : 
+                ?>
+                <div class="summary-card">
+                    <h3><?= $produk["paket"] ?></h3>
+                    <p class="price">Rp <?= number_format($produk["harga"], 0, ',', '.') ?>/ Box</p>
+                    <p>Stok Kuantitas: <strong><?= $produk["kuantitas"] ?></strong></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </content>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="logout.php">Logout</a>
+    <a href="register.php">Tambah akun</a>
+    <ul>
+        <li><a href="/aji_langit_farm/page/pemasukan">catatan pemasukan</a></li>
+        <li><a href="/aji_langit_farm/page/produksi">catatan produksi</a></li>
+    </ul>
+
+    <h1>Dashboard</h1>
+    
+     <content>
+
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>Alamat</th>
+                <th>No Telephone</th>
+                <th>Paket</th>
+                <th>Kuantitas</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+            <?php
+            $produks = produk("SELECT paket,harga FROM produk");
+            $keranjangs = keranjang("SELECT * FROM keranjang WHERE status <= 1 ORDER BY tanggal ASC");
+            $no = 1;
+            foreach ($keranjangs as $keranjang):
+                $paket = $keranjang["paket"];
+                $kuantitas = (int)$keranjang["kuantitas"];
+            ?>
+            <tr>
+                <td><?=$no ?></td>
+                <td><?=$keranjang["nama"] ?></td>
+                <td><?=$keranjang["tanggal"] ?></td>
+                <td><?=$keranjang["alamat"] ?></td>
+                <td><?=$keranjang["no_telephone"] ?></td>
+                <td><?=$paket ?></td>
+                <td><?=$kuantitas ?></td>
+                <?php
+                foreach ( $produks as $produk) : 
+                    if ($paket == $produk["paket"]) {
+                        $total = (int)$produk["harga"] * $kuantitas;
+                        echo("<td>$total</td>");
+                    }
+                endforeach;
+                ?>
+                <td><p><?= status($keranjang["status"]) ?></p></td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?=$keranjang["id"] ?>">
+                        <input type="hidden" name="status" value="<?=$keranjang["status"] ?>">
+                        <input type="submit" name="delete" value="Update Status" onclick="return confirm('Apakah anda ingin mengubah statusnya menjadi [<?= status_update($keranjang["status"]) ?>]')">
+                    </form>
+                </td>
+            </tr>
+            <?php
+            $no += 1;
+            endforeach;
+            ?>
+        </table>
+
+        <?php
+        $produks = produk("SELECT * FROM produk");
+        foreach ( $produks as $produk) : 
+        ?>
+        <div style="border: 2px solid black">
+            <p><?= $produk["paket"] ?></p>
+            <p>harga : <?= $produk["harga"] ?></p>
+            <p>kuantitas : <?= $produk["kuantitas"] ?></p>
+
+        </div>
+        <?php endforeach; ?>
+        <div>
+            <h2></h2>
+        </div>
+    </content>

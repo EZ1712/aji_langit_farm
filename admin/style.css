@@ -1,0 +1,192 @@
+/* Container tabel agar tidak terlalu lebar */
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+/* Base Table Style */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Header Style - Hijau Gelap sesuai gambar */
+.table-custom th {
+    background-color: #3e5c07; /* Warna hijau gelap */
+    color: #ffffff;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #2d4405;
+}
+
+
+
+/* Body Cell Style */
+.table-custom td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.status-0{
+    padding: 10px 15px;
+    /* border: 1px solid #ffc107; */
+    background-color: #ffc107;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.status-1{
+    padding: 10px 15px;
+    /* border: 1px solid #6cf403; */
+    background-color: #4caf50;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Zebra Striping (Baris selang-seling) */
+.table-custom tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna abu-abu muda */
+}
+
+/* Hover effect */
+.table-custom tr:hover {
+    background-color: #e9f0d8;
+}
+
+/* Style untuk tombol di dalam tabel */
+.table-custom input[type="submit"] {
+    background-color: #3e5c07;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.table-custom input[type="submit"]:hover {
+    background-color: #2d4405;
+}
+
+/* Container tabel agar bisa di-scroll saat layar kecil */
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto; /* Memungkinkan scroll horizontal di mobile */
+    -webkit-overflow-scrolling: touch; /* Scroll lebih halus di iOS */
+    border: 1px solid #ddd;
+}
+
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* CRITICAL: Memaksa tabel tetap pada lebar minimal agar tidak menciut di HP */
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Responsif Desktop (Layar Lebar) */
+@media screen and (min-width: 1024px) {
+    .table-custom {
+        min-width: 100%; /* Di desktop, biarkan mengikuti lebar layar */
+    }
+}
+
+/* Container Utama untuk Navigasi Admin */
+.admin-nav-container {
+    display: flex;
+    flex-wrap: wrap; /* Agar otomatis turun ke bawah di layar kecil */
+    justify-content: space-between; /* Kiri untuk Logout/Tambah, Kanan untuk Catatan */
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fdf5e6; /* Krem senada background */
+}
+
+/* Base Style untuk semua Tombol */
+.btn-nav {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* Tombol Hijau (Tambah Akun & Catatan) */
+.btn-green {
+    background-color: #3e5c07; /* Hijau senada header */
+    color: white !important;
+}
+
+.btn-green:hover {
+    background-color: #2d4405;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Tombol Merah (Logout) - Merah Earthy agar senada dengan Hijau Tua */
+.btn-red {
+    background-color: #a32a2a; 
+    color: white !important;
+}
+
+.btn-red:hover {
+    background-color: #821f1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Menghilangkan bullet points pada UL dan mengatur tata letak */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+/* RESPONSIVE: Mode Mobile */
+@media screen and (max-width: 600px) {
+  .admin-nav-container {
+        flex-direction: column; 
+        align-items: stretch; 
+        /* Menambah jarak antar grup (Logout vs Catatan) */
+        gap: 20px; 
+        padding: 15px;
+    }
+
+    .auth-group {
+        display: flex;
+        flex-direction: column;
+        /* Menambah jarak antara tombol Logout dan Tambah Akun */
+        gap: 12px; 
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        /* Menambah jarak antara tombol Catatan Pemasukan dan Produksi */
+        gap: 12px; 
+    }
+
+    .btn-nav {
+        width: 100%;
+        box-sizing: border-box;
+        /* Opsional: Membuat tombol sedikit lebih tinggi agar mudah ditekan jari */
+        padding: 15px 20px; 
+    }
+}

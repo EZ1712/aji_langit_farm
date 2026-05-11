@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf5e6; /* Warna krem sesuai gambar */
+    color: #333;
+    line-height: 1.6;
+    /* height: 100vh; */
+}
+
+/* --- Container Utama --- */
+.main-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #1a4d2e; /* Hijau tua khas Aji Langit Farm */
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* --- Card / Box Putih --- */
+form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* --- Styling Label & Input --- */
+label {
+    display: none; /* Sembunyikan label karena di gambar menggunakan placeholder */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #333; /* Border hitam tegas sesuai gambar */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+/* --- Button Tambah --- */
+button[name="keranjang"] {
+    background-color: #e0e0e0; /* Warna abu-abu tombol di gambar */
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button[name="keranjang"]:hover {
+    background-color: #d0d0d0;
+}
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 600px) {
+    .main-content {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button[name="keranjang"] {
+        width: 100%; /* Tombol penuh di HP agar mudah diklik */
+    }
+}
+
+/* Styling tambahan untuk Header & Footer jika diperlukan */
+/* header, footer {
+    background-color: #386611;
+    color: white;
+    padding: 20px;
+    text-align: center;
+} */

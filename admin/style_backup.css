@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fdf5e6; /* Krem */
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.page-title {
+    color: #1a4d2e;
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+/* --- Navigasi Admin --- */
+.admin-nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn-nav {
+    text-decoration: none;
+    padding: 8px 15px;
+    background: #386611;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-nav.logout {
+    background: #a30000;
+}
+
+.records-link a {
+    margin-right: 15px;
+    color: #386611;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* --- Tabel Bergaya Dashboard --- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Penting untuk mobile */
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 2px solid #333; /* Border tegas sesuai gambar */
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #fff;
+    color: #333;
+}
+
+.status-label {
+    font-weight: bold;
+    color: #386611;
+}
+
+.btn-update {
+    background-color: #e0e0e0;
+    border: 1px solid #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* --- Product Summary Cards (Bawah) --- */
+.product-summary {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.summary-card h3 {
+    color: #1a4d2e;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.summary-card .price {
+    color: #386611;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* --- Responsivitas (Mobile) --- */
+@media (max-width: 768px) {
+    .data-table th, .data-table td {
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+
+    .summary-card {
+        width: 100%; /* Card penuh di HP */
+    }
+    
+    .admin-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

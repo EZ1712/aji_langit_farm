@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf5e6; /* Latar belakang krem sesuai gambar */
+}
+
+.main-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Form Box Styling --- */
+.form-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.form-title {
+    color: #1a4d2e; /* Hijau Tua */
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- Input & Label Styling --- */
+label {
+    display: none; /* Disembunyikan agar sesuai mockup gambar */
+}
+
+input[type="datetime-local"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #333333; /* Border hitam tegas */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* --- Button Styling --- */
+.btn-save {
+    background-color: #e0e0e0; /* Abu-abu seperti di gambar */
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 18px;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.btn-save:hover {
+    background-color: #d4d4d4;
+}
+
+/* --- Table Styling --- */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Agar tabel bisa di-scroll di HP */
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.styled-table th {
+    background-color: #386611; /* Hijau brand Aji Langit */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid #333;
+    font-size: 18px;
+}
+
+.styled-table td {
+    padding: 12px;
+    border: 2px solid #333;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* --- Responsive Layout (Mobile) --- */
+@media (max-width: 600px) {
+    .main-container {
+        margin: 20px auto;
+    }
+
+    .form-box {
+        padding: 15px;
+    }
+
+    .form-title {
+        font-size: 18px;
+    }
+
+    .btn-save {
+        width: 100%; /* Tombol penuh di HP */
+    }
+
+    .styled-table th {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+
+    .styled-table td {
+        font-size: 13px;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf5e6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1; 
+} */
+
+/* .title-green {
+    color: #1a4d2e;
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: bold;
+} */
+
+/* --- Table Styling --- */
+.table-section {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.data-table th {
+    background-color: #386611;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    font-size: 18px;
+}
+
+.data-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: center;
+    color: #333;
+}
+
+/* --- Pagination Container --- */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0 0 0; /* Margin bawah 0 untuk hilangkan gap */
+    padding: 10px 10px 30px 10px; /* Padding bawah untuk nafas sebelum footer */
+}
+
+.btn-pagination {
+    background-color: #386611;
+    color: white !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.btn-pagination-disable {
+    background-color: #386611;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.btn-pagination:hover {
+    background-color: #2d4405;
+    transform: translateY(-2px);
+}
+
+.page-info {
+    font-weight: bold;
+    color: #1a4d2e;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.page-info-active {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #386611;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* --- Responsivitas (Mobile) --- */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    .title-green {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .data-table th {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+    
+    .data-table td {
+        font-size: 13px;
+        padding: 8px 5px;
+    }
+
+    .pagination-wrapper {
+        gap: 10px;
+    }
+
+    .btn-pagination {
+        padding: 5px 10px;
+        font-size: 24px;
+        min-width: 25px;
+    }
+
+    .btn-pagination-disable {
+        padding: 5px 10px;
+        font-size: 24px;
+        min-width: 25px;
+    }
+
+    .page-info {
+        font-size: 14px;
+    }
+}

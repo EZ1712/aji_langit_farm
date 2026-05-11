@@ -1,0 +1,190 @@
+/* --- Global Styles --- */
+:root {
+    --primary-green: #386611;
+    --dark-green: #24420a;
+    --light-bg: #fdf5e6;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--light-bg);
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    /* height: 100vh; */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    height: 66.5vh;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.page-title {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 40px;
+    font-size: 2rem;
+    display: none; /* Sembunyikan jika ingin persis gambar yang bersih */
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+/* --- Product Card --- */
+.product-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 8px; /* Sudut halus sesuai gambar */
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Konten di tengah secara horizontal */
+}
+
+.product-name {
+    color: #1a4d41;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.price-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.price-main {
+    color: var(--primary-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* --- Detail List --- */
+.product-details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.product-details li {
+    color: #1a4d41;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+    font-size: 1.05rem;
+}
+
+.product-details li::before {
+    content: "•";
+    color: var(--primary-green);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* --- Button --- */
+.btn-cart {
+    background-color: var(--primary-green);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px; /* Membuat lonjong seperti di gambar */
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: auto; /* Memastikan tombol selalu di bawah */
+}
+
+.btn-cart:hover {
+    background-color: var(--dark-green);
+}
+
+@media (max-width: 670px) {
+    .container {
+    /* max-width: 1100px; */
+    /* margin: 0 auto; */
+    /* padding: 40px 20px; */
+    height: 110vh;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+}
+
+/* --- Responsive Layout (Mobile) --- */
+@media (max-width: 600px) {
+    .container {
+    /* max-width: 1100px; */
+    /* margin: 0 auto; */
+    /* padding: 40px 20px; */
+    height: 100vh;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Satu kolom di HP */
+    }
+    
+    .product-card {
+        padding: 30px 20px;
+    }
+}
+
+/* .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 80vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+} */
+
+/* --- Media Queries (Mobile & Tablet) --- */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px; /* Kurangi padding samping di layar kecil */
+    }
+    
+    .product-name {
+        font-size: 1.4rem; /* Kecilkan sedikit teks judul */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        /* Memastikan hanya ada 1 kolom di HP kecil */
+        grid-template-columns: 1fr; 
+    }
+    
+    .product-card {
+        padding: 25px 15px;
+    }
+    
+    .btn-cart {
+        width: 100%; /* Tombol full width di HP agar mudah diklik */
+        text-align: center;
+    }
+}

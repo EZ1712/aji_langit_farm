@@ -7,11 +7,11 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #FFF9F0;
-    color: #355E13;
+    background-color: #FFF9F0; /* Krem muda sesuai gambar */
+    color: #355E13; /* Hijau tua */
 }
 
-/* Navigasi */
+/* --- Navigasi --- */
 nav {
     background-color: #355E13;
     padding: 10px 5%;
@@ -21,6 +21,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo-img {
@@ -28,24 +30,30 @@ nav {
     width: auto;
 }
 
-/* Ukuran logo kecil sesuai referensi */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .cart-icon {
     font-size: 1.2rem;
+    color: white;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('background-bebek.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('1.png');
     background-size: cover;
     background-position: center;
-    height: 300px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,155 +62,217 @@ nav {
 
 .hero-text h1 {
     color: white;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: clamp(1.5rem, 5vw, 2.8rem); /* Ukuran teks fleksibel */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    padding: 0 20px;
 }
 
-/* Konten Utama */
+/* --- Konten Utama --- */
 .content {
     text-align: center;
-    padding: 40px 10%;
+    padding: 40px 5%;
+}
+
+.product-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .main-prod-img {
-    width: 250px;
-    border: 4px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    max-width: 90%;
+    height: auto;
+    border: 6px solid white; /* Frame putih sesuai gambar */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
 }
 
 .tagline {
-    margin-top: 15px;
+    background-color: white;
+    color: #436d14;
     font-weight: bold;
-    color: #355E13;
+    padding: 10px 20px;
     border: 1px solid #ddd;
+    border-radius: 8px;
     display: inline-block;
-    padding: 5px 15px;
-    background: white;
-    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
-/* Grid Icon */
+/* --- Grid Icon --- */
 .icons-grid {
     display: flex;
-    justify-content: space-around;
-    margin: 50px 0;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px 0;
+    flex-wrap: wrap; /* Agar icon turun ke bawah jika layar sempit */
+}
+
+.icon-item {
+    width: 120px;
+    text-align: center;
 }
 
 .icon-item img {
     width: 60px;
-    margin-bottom: 10px;
+    height: auto;
+    margin-bottom: 15px;
 }
 
 .icon-item p {
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: #436d14;
 }
 
-/* Tentang Kami */
+/* --- Tentang Kami --- */
+.about-us {
+    padding-bottom: 50px;
+}
+
 .about-us h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #436d14;
 }
 
 .about-us p {
-    line-height: 1.6;
-    max-width: 800px;
+    line-height: 1.8;
+    max-width: 850px;
     margin: 0 auto;
+    font-size: 1rem;
+    text-align: center;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     background-color: #355E13;
     color: white;
-    padding-top: 30px;
-    margin-top: 50px;
+    padding-top: 40px;
 }
 
 .footer-top {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap; /* Untuk tampilan mobile */
     padding: 0 10%;
-    margin-bottom: 30px;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-info {
+    flex: 1;
+    min-width: 250px;
 }
 
 .orange-text {
-    color: #FFA500;
-    margin-bottom: 10px;
-    font-size: 1rem;
+    color: #FFA500; /* Warna oranye sesuai gambar */
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .footer-info p {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
 }
 
 .footer-bottom {
-    background-color: #26430D;
+    background-color: #26430D; /* Hijau lebih gelap */
     text-align: center;
     padding: 15px 0;
     font-size: 0.8rem;
     border-top: 1px solid #4A7A1C;
 }
 
-.hero {
-    /* Bagian paling penting: Gambar Latar Belakang */
-    background-image: url('1.png');
-    /* Ganti dengan nama file gambar latar belakang kamu */
+/* --- MEDIA QUERIES (Responsif HP) --- */
 
-    background-size: cover;
-    /* Gambar akan menutupi seluruh area */
-    background-position: center;
-    /* Gambar akan berada di tengah */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Menyembunyikan link di layar sangat kecil (opsional) */
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .hero {
+        height: 250px;
+    }
 
-    /* Mengatur tinggi area header agar teks bisa berada di atas gambar */
-    height: 400px;
-    /* Atur tinggi sesuai keinginan, misalnya 400px */
+    .icons-grid {
+        gap: 20px;
+    }
 
-    /* Mengatur teks agar berada di tengah area header */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    .icon-item {
+        width: 45%; /* Di HP tampil 2 icon per baris */
+    }
 }
 
-.hero-text h1 {
-    /* Mengubah warna teks menjadi putih */
-    color: white;
-    /* Ganti dengan warna yang kamu inginkan */
-    font-size: 2.5rem;
-    /* Mengatur ukuran teks agar lebih besar */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .about-us h2 {
+        font-size: 1.8rem;
+    }
 }
 
-.product-feature {
-    display: flex;
+
+
+
+/* --- Tambahkan ini ke bagian CSS Anda --- */
+
+/* Style untuk tombol Hamburger */
+.menu-toggle {
+    display: none; /* Sembunyikan di desktop */
     flex-direction: column;
-    /* Ini yang membuat elemen turun ke bawah */
-    align-items: center;
-    /* Agar gambar dan teks tetap di tengah */
-    text-align: center;
-    margin-top: 30px;
+    cursor: pointer;
 }
 
-.main-prod-img {
-    width: 250px;
-    /* Ukuran sesuai referensi */
-    height: auto;
-    border: 5px solid white;
-    /* Frame putih seperti di foto */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    /* Jarak antara gambar dan teks */
-}
-
-.tagline {
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
     background-color: white;
-    color: #436d14;
-    /* Warna hijau teks */
-    font-weight: bold;
-    padding: 8px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* Membuat sudut kotak agak melengkung */
-    display: inline-block;
-    /* Agar kotak putih hanya mengikuti lebar teks */
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Tampilkan di mobile */
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan link secara default di mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Sesuaikan dengan tinggi nav */
+        left: 0;
+        background-color: #355E13;
+        padding: 20px 0;
+        z-index: 100;
+    }
+
+    /* Class yang akan ditambahkan via JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cart-icon {
+        margin-top: 10px;
+    }
 }

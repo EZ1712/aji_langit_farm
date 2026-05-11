@@ -1,0 +1,56 @@
+ <p>Produk</p>
+     <content>
+        <?php
+        $produks = produk("SELECT * FROM produk");
+        foreach ( $produks as $produk) : 
+        ?>
+        <div style="border: 2px solid black">
+            <p><?= $produk["paket"] ?></p>
+            <p>harga : <?= $produk["harga"] ?></p>
+            <p>kuantitas : <?= $produk["kuantitas"] ?></p>
+
+        </div>
+        <?php endforeach; ?>
+    </content>
+
+    <p>Produk</p>
+     <content>
+        <?php
+        $produks = produk("SELECT * FROM produk");
+        foreach ( $produks as $produk) : 
+        ?>
+        <div style="border: 2px solid black">
+            <p><?= $produk["paket"] ?></p>
+            <p>harga : <?= $produk["harga"] ?></p>
+            <p>kuantitas : <?= $produk["kuantitas"] ?></p>
+
+        </div>
+        <?php endforeach; ?>
+    </content>
+
+
+    kedua
+
+      <div class="container-produk">
+        <h1>Produk Kami</h1>
+        <div class="content-produk">
+            <?php
+            $produks = produk("SELECT * FROM produk");
+            foreach ( $produks as $produk) : 
+            ?>
+            <div class="card-produk">
+                <h2><?= $produk["paket"] ?></h2>
+                <div class="info-harga">
+                    <p class="harga">Rp <?= number_format($produk["harga"], 0, ',', '.') ?></p>
+                    <p class="deskripsi">Kuantitas: <?= $produk["kuantitas"] ?></p>
+                </div>
+                <ul class="fitur">
+                    <li>usia: 1 hari</li>
+                    <li>kondisi: Sehat & aktif</li>
+                    <li>cocok untuk peternakan</li>
+                </ul>
+                <button class="btn-keranjang">Tambah ke keranjang</button>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>

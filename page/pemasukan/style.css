@@ -1,0 +1,190 @@
+/* --- Global Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf5e6; /* Latar krem sesuai gambar */
+    padding-bottom: 50px;
+    color: #333;
+}
+
+.container-pemasukan {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #1a4d2e;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* --- Table Styling (Mengikuti desain gambar 2 & 5) --- */
+.table-section {
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal di HP agar tidak hancur */
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Menjaga agar kolom tidak terlalu dempet di layar kecil */
+}
+
+.data-table th {
+    background-color: #386611; /* Hijau tua sesuai gambar */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #333; /* Border hitam tegas */
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.data-table td {
+    padding: 12px;
+    border: 1px solid #333; /* Border hitam tegas */
+    text-align: center;
+    font-size: 14px;
+    background-color: white;
+}
+
+/* Zebra Striping & Hover */
+.data-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.data-table tr:hover td {
+    background-color: #f1f8e9;
+}
+
+/* --- Pagination Style (Tengah & Responsif) --- */
+.pagination-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* .btn-pagination {
+    background-color: #3e5c07;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+} */
+
+.btn-pagination {
+    background-color: #386611;
+    color: white !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.btn-pagination-disable {
+    background-color: #386611;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.btn-pagination:hover {
+    background-color: #2d4405;
+    transform: translateY(-2px);
+}
+
+/* .page-info {
+    font-weight: bold;
+    color: #1a4d2e;
+    font-size: 16px;
+} */
+
+.page-info {
+    font-weight: bold;
+    color: #1a4d2e;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.page-info-active {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #386611;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* --- Responsivitas (Mobile) --- */
+@media (max-width: 600px) {
+    .container-pemasukan {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .data-table th {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
+    
+    .data-table td {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    .pagination-wrapper {
+        gap: 8px;
+    }
+
+    .btn-pagination {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .page-info {
+        font-size: 13px;
+    }
+}

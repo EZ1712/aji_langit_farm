@@ -1,0 +1,224 @@
+<div class="container-pemasukan">
+    <h1>Pemasukan</h1>
+    <table class="table-pemasukan">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Produk</th>
+                <th>Kuantitas</th>
+                <th>Pemasukan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $count = 1;
+            // Gunakan number_format untuk kolom pemasukan agar menjadi format Rupiah
+            $pemasukans = pemasukan("SELECT * FROM pemasukan ORDER BY tanggal DESC LIMIT $limit OFFSET $offset");
+            foreach ($pemasukans as $pemasukan ) :
+            ?>
+            <tr>
+                <td><?=$count ?></td>
+                <td><?=$pemasukan["tanggal"] ?></td>
+                <td><?=$pemasukan["produk"] ?></td>
+                <td><?=$pemasukan["kuantitas"] ?></td>
+                <td>Rp <?= number_format($pemasukan["pemasukan"], 0, ',', '.') ?></td>
+            </tr>
+            <?php $count += 1; endforeach; ?>
+        </tbody>
+    </table>
+
+    <div class="pagination-wrapper">
+        <?php if ($page > 1) : ?>
+            <a href="?page=<?= $page - 1 ?>" class="btn-pagination">PREVIOUS</a>
+        <?php endif; ?>
+
+        <span class="page-info"> Halaman <?= $page ?> </span>
+
+        <?php if ($page < $total_halaman) : ?>
+            <a href="?page=<?= $page + 1 ?>" class="btn-pagination">NEXT</a>
+        <?php endif; ?>
+    </div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="table-section">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Produk</th>
+                    <th>Jumlah</th>
+                    <th>Total Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $pemasukans = pemasukan("SELECT * FROM pemasukan");
+                foreach ($pemasukans as $pemasukan ) :
+                ?>
+                <tr>
+                    <td><?=$pemasukan["tanggal"] ?></td>
+                    <td><?=$pemasukan["produk"] ?></td>
+                    <td><?=$pemasukan["kuantitas"] ?></td>
+                    <td>Rp <?=number_format($pemasukan["pemasukan"], 0, ',', '.') ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <content>
+    <h1>Catat Pemasukan</h1>
+    <form action="" method="post">
+        <label for="tanggal">Tanggal</label>
+        <input type="datetime-local" name="tanggal" id="tanggal" required>
+
+        <label for="produk">Produk</label>
+        <select name="produk" id="produk" required>
+            <option value="" disabled selected>Pilih Produk</option>
+            <?php
+            $produks = produk("SELECT * FROM produk");
+            foreach ($produks as $produk):
+            ?>
+            <option value="<?=$produk["paket"] ?>"><?=$produk["paket"]?></option>
+            <?php 
+            endforeach;?>
+        </select>
+
+        <label for="kuantitas">Kuantitas</label>
+        <input type="number" name="kuantitas" id="kuantitas" min="1" onkeydown="return event.keyCode !== 69" required>
+
+        
+
+        <label for="pemasukan">Pemasukan</label>
+        <input type="number" name="pemasukan" id="pemasukan" placeholder="kosongkan untuk hitung otomatis">
+
+        <button type="submit" name="catat_pemasukan">Catat Pemasukan</button>
+    </form>
+
+    <h1>Pemasukan</h1>
+    <table style="width: 100%">
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Produk</th>
+            <th>Kuantitas</th>
+            <th>Pemasukan</th>
+        </tr>
+        <?php
+        $count = 1;
+        $pemasukans = pemasukan("SELECT * FROM pemasukan ORDER BY tanggal DESC LIMIT $limit OFFSET $offset");
+        foreach ($pemasukans as $pemasukan ) :
+        ?>
+        <tr>
+            <td><?=$count ?></td>
+            <td><?=$pemasukan["tanggal"] ?></td>
+            <td><?=$pemasukan["produk"] ?></td>
+            <td><?=$pemasukan["kuantitas"] ?></td>
+            <td><?=$pemasukan["pemasukan"] ?></td>
+        </tr>
+        <?php $count += 1; endforeach;
+        
+        ?>
+    </table>
+     <div style="margin-top: 20px;">
+    <?php if ($page > 1) : ?>
+        <a href="?page=<?= $page - 1 ?>"><button>PREVIOUS</button></a>
+    <?php endif; ?>
+
+    <span> Halaman <?= $page ?> </span>
+
+    <?php if ($page < $total_halaman) : ?>
+        <a href="?page=<?= $page + 1 ?>"><button>NEXT</button></a>
+    <?php else : ?>
+        <!-- <button disabled>NEXT</button>  -->
+        <?php endif; ?>
+    </div> 
+
+    </content>
+
+       <!-- <div class="pagination-wrapper">
+    <?php if ($page > 1) : ?>
+        <a href="?page=<?= $page - 1 ?>" class="btn-pagination">PREVIOUS</a>
+    <?php endif; ?>
+
+    <span class="page-info">Halaman <?= $page ?></span>
+
+    <?php if ($page < $total_halaman) : ?>
+        <a href="?page=<?= $page + 1 ?>" class="btn-pagination">NEXT</a>
+    <?php endif; ?>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if ($page > 1) : ?>
+            <a href="?page=<?= $page - 1 ?>" class="btn-pagination">PREVIOUS</a>
+        <?php endif; ?>
+
+        <span class="page-info">Halaman <?= $page ?></span>
+
+        <?php if ($page < $total_halaman) : ?>
+            <a href="?page=<?= $page + 1 ?>" class="btn-pagination">NEXT</a>
+        <?php endif; ?>

@@ -27,6 +27,7 @@ if (isset($_POST["login"])) {
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -36,12 +37,72 @@ if (isset($_POST["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aji Langit Farm</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style_login.css">
 </head>
 <body>
     
     <?php include "../layout/header.php" ?>
 
-    <content>
+      <main class="login-container">
+        <section class="login-illustration">
+            <div class="green-shape">
+                <img src="login.png" alt="Illustration" class="person-img">
+            </div>
+        </section>
+
+        <section class="login-box">
+            <div class="card-login">
+                <h1>Log in</h1>
+
+                <?php if( isset($error)) : ?>
+                    <p class="error-msg">no telephone / password salah</p>
+                <?php endif; ?>
+
+                <form action="" method="post">
+                    <div class="input-group">
+                        <label for="no_telephone">
+                             <img src="https://img.icons8.com/ios-filled/50/386611/phone.png" alt="icon" width="20"> 
+                             No Telephone
+                        </label>
+                        <input type="number" name="no_telephone" id="no_telephone" placeholder="Masukkan nomor...">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">
+                            <img src="https://img.icons8.com/ios-filled/50/386611/lock.png" alt="icon" width="20"> 
+                            Password
+                        </label>
+                        <input type="password" name="password" id="password" placeholder="Masukkan password...">
+                    </div>
+
+                    <button type="submit" name="login" class="btn-login">Log in</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <content>
     <h1>Login</h1>
 
     <?php if( isset($error)) : ?>
@@ -58,7 +119,7 @@ if (isset($_POST["login"])) {
         <button type="submit" name="login">Masuk</button>
     </form>
 
-    </content>
+    </content> -->
 
     <?php include "../layout/footer.php" ?>
 

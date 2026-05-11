@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf5e6; /* Latar krem sesuai gambar */
+    padding-bottom: 0px;
+}
+
+
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Form Card --- */
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.title-green {
+    color: #1a4d2e;
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- Input Styling --- */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #333; /* Border hitam sesuai gambar */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Hilangkan label bawaan jika ingin persis gambar (mengandalkan placeholder) */
+label {
+    display: none;
+}
+
+/* --- Tombol Simpan --- */
+.btn-submit {
+    width: fit-content;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.btn-submit:hover {
+    background-color: #d0d0d0;
+}
+
+/* --- Table Styling --- */
+.table-section {
+    width: 100%;
+    overflow-x: auto; /* Agar tabel bisa di-scroll di HP */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.data-table th {
+    background-color: #386611; /* Hijau tua footer/header */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    font-size: 18px;
+}
+
+.data-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+/* --- Responsivitas (Mobile) --- */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+    }
+
+    .form-card {
+        padding: 15px;
+    }
+
+    .title-green {
+        font-size: 18px;
+    }
+
+    .btn-submit {
+        width: 100%; /* Tombol penuh di HP */
+    }
+
+    .data-table th {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+    
+    .data-table td {
+        font-size: 13px;
+    }
+}
+
+/* --- Pagination Container --- */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center; /* Memastikan posisi di tengah layar */
+    align-items: center;
+    gap: 20px; /* Jarak antara tombol dan teks */
+    margin: 30px 0 ;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* --- Tombol Next & Previous --- */
+/* .btn-pagination {
+    background-color: #386611; 
+    color: white !important; 
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 100px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+} */
+
+
+.btn-pagination {
+    background-color: #386611;
+    color: white !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.btn-pagination-disable {
+    background-color: #386611;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #2d4405;
+    text-align: center;
+    min-width: 25px;
+    display: inline-block;
+}
+
+/* Efek Hover (Saat kursor di atas tombol) */
+.btn-pagination:hover {
+    background-color: #2d4405; /* Hijau lebih gelap */
+    transform: translateY(-2px); /* Efek sedikit terangkat */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Efek Klik */
+.btn-pagination:active {
+    transform: translateY(0);
+}
+
+/* --- Teks Informasi Halaman --- */
+/* .page-info {
+    font-weight: bold;
+    color: #1a4d2e; 
+    font-size: 16px;
+    padding: 5px 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} */
+
+.page-info {
+    font-weight: bold;
+    color: #1a4d2e;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.page-info-active {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #386611;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+/* --- RESPONSIVITAS MOBILE --- */
+@media (max-width: 600px) {
+    .pagination-wrapper {
+        gap: 10px; /* Memperkecil jarak di HP */
+    }
+
+    .btn-pagination {
+        padding: 10px 15px; /* Tombol lebih ramping */
+        font-size: 12px;
+        min-width: 80px;
+    }
+
+    .page-info {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}

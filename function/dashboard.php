@@ -47,6 +47,16 @@ function status_update($status) {
         return "Sedang diproses";
     } else {
         return "Selesai";
+        // catat_pemasukan("INSERT");
     }
+}
+
+// function catat_pemasukan($query) {
+
+// }
+
+function catat_pemasukan($query) {
+    global $connection;
+    $result = mysqli_query($connection, $query);
 }
 ?>

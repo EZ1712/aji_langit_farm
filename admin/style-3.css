@@ -1,0 +1,23 @@
+/* Container tabel agar bisa di-scroll saat layar kecil */
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto; /* Memungkinkan scroll horizontal di mobile */
+    -webkit-overflow-scrolling: touch; /* Scroll lebih halus di iOS */
+    border: 1px solid #ddd;
+}
+
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* CRITICAL: Memaksa tabel tetap pada lebar minimal agar tidak menciut di HP */
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Responsif Desktop (Layar Lebar) */
+@media screen and (min-width: 1024px) {
+    .table-custom {
+        min-width: 100%; /* Di desktop, biarkan mengikuti lebar layar */
+    }
+}

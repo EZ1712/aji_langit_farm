@@ -17,4 +17,15 @@ function catat_produksi($query) {
     $result = mysqli_query($connection, $query);
 }
 
+function total_data($query) {
+    global $connection;
+    $result = mysqli_query($connection, $query);
+
+    $datas = [];
+    while ($data = mysqli_fetch_assoc($result)) {
+        $datas[] = $data;
+    }
+    return $datas;
+}
+
 ?>
